@@ -87,12 +87,19 @@ public class HomeActivity extends AppCompatActivity {
                     Intent intent=new Intent(HomeActivity.this,HistoryActivity.class);
                     startActivity(intent);
                 }
+                else if(item.getItemId()==R.id.logout)
+                {
+                    FirebaseAuth.getInstance().signOut();
+                    Intent intent=new Intent(HomeActivity.this,LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
                 return false;
             }
         });
 
 
-
+        fetchPoint();
     }
     ImageListener imageListener = new ImageListener() {
         @Override
